@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center">
+  <div class="min-h-screen flex items-center justify-center bg-gray-50">
     <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
       <h1 class="text-2xl font-semibold text-center mb-6">Login</h1>
 
@@ -51,8 +51,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { useToast } from "vue-toastification";
 
+const router = useRouter();
 const toast = useToast();
 
 const email = ref("");
@@ -87,10 +89,26 @@ function handleLogin() {
   validateEmail();
   validatePassword();
 
-  if (!emailError.value && !passwordError.value) {
-    toast.success("Login successful!");
-  } else {
+  if (emailError.value || passwordError.value) {
     toast.error("Please fix the errors before submitting");
+    return;
   }
+
+  // Check user credentials from localStorage
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const user = users.find(
+    (u) => u.email === email.value && u.password === password.value
+  );
+
+  if (!user) {
+    toast.error("Invalid email or password");
+    return;
+  }
+
+  // Store session
+  localStorage.setItem("ticketapp_session", JSON.stringify(user));
+
+  toast.success("Login successful!");
+  setTimeout(() => router.push("/dashboard"), 1500);
 }
 </script>
