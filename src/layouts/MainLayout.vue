@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="flex flex-col min-h-screen">
     <!-- Navbar -->
     <Navbar />
 
-    <!-- Main content area -->
-    <main class="grow container mx-auto p-4">
+    <!-- Main content -->
+    <main class="flex-1 container mx-auto p-4">
       <router-view />
     </main>
 
@@ -19,5 +19,7 @@ import Footer from '@/components/Footer.vue'
 </script>
 
 <style scoped>
-/* Optional additional layout styling can go here */
+footer {
+  margin-top: auto;
+}
 </style>

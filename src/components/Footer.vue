@@ -1,7 +1,7 @@
 <template>
-  <footer class="bg-white shadow-inner py-5 mt-10">
+  <footer class="bg-white shadow-inner py-5">
     <div class="max-w-[1440px] mx-auto text-center text-gray-500 text-sm">
-      © {{ currentYear }} TicketApp. All rights reserved.
+      © {{ currentYear }} TicketX. All rights reserved.
     </div>
   </footer>
 </template>

@@ -3,12 +3,6 @@
     <!-- Header -->
     <div class="flex justify-between items-center mb-8">
       <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
-      <button
-        @click="handleLogout"
-        class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md transition"
-      >
-        Logout
-      </button>
     </div>
 
     <!-- Stats grid -->
@@ -76,11 +70,6 @@ onMounted(() => {
   stats.closed = tickets.filter(t => t.status === 'closed').length
 })
 
-// Logout
-function handleLogout() {
-  localStorage.removeItem('ticketapp_session')
-  router.push('/')
-}
 
 // Go to tickets page
 function goToTickets() {
