@@ -22,7 +22,7 @@
         support tickets efficiently.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
+      <div class="flex flex-col gap-4 justify-center w-full sm:w-auto">
         <router-link
           to="/auth/login"
           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition text-center w-full sm:w-auto"
